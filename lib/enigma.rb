@@ -28,11 +28,19 @@ class Enigma
 
     message = []
     str.split("").each do |letter|
+      if letter == " "
+        message << " "
+        shift_keys = shift_keys.rotate(1)
+      elsif !alphabet.include?(letter)
+        message << letter
+        shift_keys = shift_keys.rotate(1)
+      else
       old_index = alphabet.find_index(letter)
 
       new_letter = alphabet.rotate(old_index + shift_keys[0])[0]
       message << new_letter
       shift_keys = shift_keys.rotate(1)
+      end
     end
     acc = {encryption: message.join, key: key, date: date}
   end
@@ -63,7 +71,6 @@ class Enigma
     message = []
     str.split("").each do |letter|
       old_index = alphabet.find_index(letter)
-
       new_letter = alphabet.rotate(old_index - shift_keys[0])[0]
       message << new_letter
       shift_keys = shift_keys.rotate(1)
