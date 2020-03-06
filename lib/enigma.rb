@@ -3,7 +3,7 @@ require 'date'
 
 class Enigma
 
-  def encrypt(str, key, date)
+  def encrypt(str, key, date = Date.today.strftime('%y%m%d'))
 
     alphabet = ("a".."z").to_a << " "
 
@@ -37,7 +37,7 @@ class Enigma
     acc = {encryption: message.join, key: key, date: date}
   end
 
-  def decrypt(str, key, date)
+  def decrypt(str, key, date = Date.today.strftime('%y%m%d'))
 
     alphabet = ("a".."z").to_a << " "
 
@@ -69,8 +69,8 @@ class Enigma
       shift_keys = shift_keys.rotate(1)
     end
     acc = {decryption: message.join, key: key, date: date}
-
   end
+
 
 
 end

@@ -14,7 +14,7 @@
       <img src="./assets/0.12.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2020-03-06T11:48:35-07:00">2020-03-06T11:48:35-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2020-03-06T12:40:40-07:00">2020-03-06T12:40:40-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -186,7 +186,7 @@
 
             
 
-            <code class="ruby">  def encrypt(str, key, date)</code>
+            <code class="ruby">  def encrypt(str, key, date = Date.today.strftime(&#39;%y%m%d&#39;))</code>
           </li>
         </div>
       
@@ -560,7 +560,7 @@
 
             
 
-            <code class="ruby">  def decrypt(str, key, date)</code>
+            <code class="ruby">  def decrypt(str, key, date = Date.today.strftime(&#39;%y%m%d&#39;))</code>
           </li>
         </div>
       
@@ -912,7 +912,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -923,7 +923,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
