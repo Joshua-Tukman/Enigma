@@ -32,8 +32,7 @@ class Enigma
         message << " "
         shift_keys = shift_keys.rotate(1)
       elsif !alphabet.include?(letter)
-        message << letter
-        shift_keys = shift_keys.rotate(1)
+        message << letter      
       else
       old_index = alphabet.find_index(letter)
 
@@ -76,7 +75,7 @@ class Enigma
         shift_keys = shift_keys.rotate(1)
       elsif !alphabet.include?(letter)
         message << letter
-        shift_keys = shift_keys.rotate(1)
+
       else
         old_index = alphabet.find_index(letter)
         new_letter = alphabet.rotate(old_index - shift_keys[0])[0]
