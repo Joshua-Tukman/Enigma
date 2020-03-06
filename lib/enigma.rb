@@ -25,17 +25,19 @@ class Enigma
     shift_keys = [a_shift, b_shift, c_shift, d_shift]
 
 
-    str.split("").each do |letter|
-      count = 0
+    str.split("").map.with_index do |letter, i|
+      message = []
       old_index = alphabet.find_index(letter)
-      new_index = old_index + a_shift
-      count += 1
+      new_letter = alphabet.fetch(old_index + shift_keys[0], letter)
+        require "pry"; binding.pry
+      shift_keys.rotate(1)
+
     end
-
-
 
   end
 end
+
+
 
  # def encrypt(message, key = nil, date = Date.today)
  #   acc = {encryption: "", key: 2digit_num, date: DDMMYY}
