@@ -3,6 +3,7 @@ require 'date'
 class Enigma
 
   def encrypt(str, key, date)
+
     alphabet = ("a".."z").to_a << " "
 
     a_key = key[0..1].to_i
@@ -24,15 +25,14 @@ class Enigma
     d_shift = d_key + d_offset
     shift_keys = [a_shift, b_shift, c_shift, d_shift]
 
-
-    str.split("").map.with_index do |letter, i|
-      message = []
+    message = []
+    str.split("").each do |letter|
       old_index = alphabet.find_index(letter)
-      new_letter = alphabet.fetch(old_index + shift_keys[0], letter)
-        require "pry"; binding.pry
-      shift_keys.rotate(1)
-
-    end
+      new_letter = alphabet.rotate(old_index + shift_keys[0])[0]
+      message << new_letter
+      shift_keys = shift_keys.rotate(1)
+    end  
+    acc = {encryption: message.join, key: key, date: date}
 
   end
 end
