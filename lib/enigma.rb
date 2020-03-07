@@ -32,11 +32,15 @@ class Enigma
         message << " "
         shift_keys = shift_keys.rotate(1)
       elsif !alphabet.include?(letter)
-        message << letter      
+        message << letter
       else
       old_index = alphabet.find_index(letter)
-
       new_letter = alphabet.rotate(old_index + shift_keys[0])[0]
+        if new_letter == " "
+          new_letter = "^"
+          #message << new_letter
+
+        end
       message << new_letter
       shift_keys = shift_keys.rotate(1)
       end
@@ -73,20 +77,30 @@ class Enigma
       if letter == " "
         message << " "
         shift_keys = shift_keys.rotate(1)
-      elsif !alphabet.include?(letter)
-        message << letter
 
-      else
+      elsif letter == "^"
+        letter = " "
         old_index = alphabet.find_index(letter)
+
+
         new_letter = alphabet.rotate(old_index - shift_keys[0])[0]
         message << new_letter
         shift_keys = shift_keys.rotate(1)
+
+      elsif !alphabet.include?(letter)
+        message << letter
+      else
+        letter == alphabet.include?(letter)
+        old_index = alphabet.find_index(letter)
+        new_letter = alphabet.rotate(old_index - shift_keys[0])[0]
+          message << new_letter
+
+        shift_keys = shift_keys.rotate(1)
       end
-    end
+
+      end
     acc = {decryption: message.join, key: key, date: date}
   end
-
-
 
 end
 

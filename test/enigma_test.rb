@@ -63,11 +63,21 @@ class EnigmaTest < Minitest::Test
   def test_it_can_encrypt_a_message_with_todays_date
     enigma = Enigma.new
     expected = {
-      encryption: " " ,
+      encryption: "lib^s mcvpu" ,
       key: "02715",
-      date: "060320"
+      date: "070320"
     }
     assert_equal expected, enigma.encrypt("hello world", "02715")
+  end
+
+  def test_it_can_decrypt_message_with_todays_date
+    enigma = Enigma.new
+    encryption = {
+      :decryption=>"hello world",
+      :key=>"02715",
+      :date=>"070320"
+    }
+    assert_equal encryption, enigma.decrypt("lib^s mcvpu", "02715")#lib s mcvpu
   end
 end
 
