@@ -23,7 +23,6 @@ class Enigma
       new_letter = alphabet.rotate(old_index + shift_keys[0])[0]
         if new_letter == " "
           new_letter = "^"
-          #message << new_letter
         end
       message << new_letter
       shift_keys = shift_keys.rotate(1)
@@ -35,14 +34,6 @@ class Enigma
   def decrypt(str, key, date = Date.new)
 
     alphabet = ("a".."z").to_a << " "
-
-    # square = date.to_i ** 2
-    # last_four = square.to_s[-4..-1]
-    #
-    # a_offset = last_four[0].to_i
-    # b_offset = last_four[1].to_i
-    # c_offset = last_four[2].to_i
-    # d_offset = last_four[3].to_i
 
     a_shift = key.a_key + date.a_offset
     b_shift = key.b_key + date.b_offset
