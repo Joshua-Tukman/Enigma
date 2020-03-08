@@ -45,6 +45,11 @@ class OffsetTest < Minitest::Test
     assert_equal 4, offset.b_offset
   end
 
+  def test_it_can_make_an_c_offset
+    offset = Offset.new
+    assert_equal 0, offset.c_offset
+  end
+
 
 
 

@@ -17,6 +17,10 @@ class Offset
   def b_offset
     last_four[1].to_i
   end
+
+  def c_offset
+    last_four[2].to_i
+  end
   # square = date.to_i ** 2
   # last_four = square.to_s[-4..-1]
   #
