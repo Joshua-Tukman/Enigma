@@ -49,4 +49,14 @@ class ShiftTest < Minitest::Test
     shift = Shift.new(key, date)
     assert_equal 15, shift.d_shift
   end
+
+  def test_it_can_calculate_shifts_with_given_date
+    date = Date.new("040895")
+    key = Key.new("02715")
+    shift = Shift.new(key, date)
+    assert_equal 3, shift.a_shift
+    assert_equal 27, shift.b_shift
+    assert_equal 73, shift.c_shift
+    assert_equal 20, shift.d_shift
+  end
 end
