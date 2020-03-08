@@ -9,6 +9,7 @@ class Enigma
     b_shift = key.b_key + date.b_offset
     c_shift = key.c_key + date.c_offset
     d_shift = key.d_key + date.d_offset
+    require "pry"; binding.pry
     shift_keys = [a_shift, b_shift, c_shift, d_shift]
 
     message = []

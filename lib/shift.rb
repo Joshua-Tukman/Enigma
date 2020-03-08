@@ -18,4 +18,8 @@ class Shift
     @key.c_key + @date.c_offset
   end
 
+  def d_shift
+    @key.d_key + @date.d_offset
+  end
+
 end
