@@ -5,14 +5,14 @@ class Enigma
   def encrypt(str, key, date = Date.today.strftime('%d%m%y'))
     alphabet = ("a".."z").to_a << " "
 
-    square = date.to_i ** 2
-    last_four = square.to_s[-4..-1]
-    require "pry"; binding.pry
+    # square = date.to_i ** 2
+    # last_four = square.to_s[-4..-1]
 
-    a_offset = last_four[0].to_i
-    b_offset = last_four[1].to_i
-    c_offset = last_four[2].to_i
-    d_offset = last_four[3].to_i
+
+    # a_offset = last_four[0].to_i
+    # b_offset = last_four[1].to_i
+    # c_offset = last_four[2].to_i
+    # d_offset = last_four[3].to_i
 
     a_shift = key.a_key + a_offset
     b_shift = key.b_key + b_offset

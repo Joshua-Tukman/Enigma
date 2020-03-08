@@ -1,4 +1,4 @@
-class Offset
+class Date
   attr_reader :date, :squared
 
   def initialize(date = Date.today.strftime('%d%m%y'))
