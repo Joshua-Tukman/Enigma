@@ -32,7 +32,7 @@ class Enigma
     acc = {encryption: message.join, key: key, date: date}
   end
 
-  def decrypt(str, key, date = Date.today.strftime('%d%m%y'))
+  def decrypt(str, key, date = Date.new)
 
     alphabet = ("a".."z").to_a << " "
 
