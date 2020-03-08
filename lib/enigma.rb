@@ -2,7 +2,7 @@
 require 'date'
 
 class Enigma
-  def encrypt(str, key, date)
+  def encrypt(str, key, date = Date.new)
     alphabet = ("a".."z").to_a << " "
 
     a_shift = key.a_key + date.a_offset
