@@ -9,4 +9,8 @@ class Shift
   def a_shift
     @key.a_key + @date.a_offset
   end
+
+  def b_shift
+    @key.b_key + @date.b_offset
+  end
 end
