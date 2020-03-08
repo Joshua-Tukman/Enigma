@@ -3,6 +3,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/enigma'
 require './lib/key'
+require './lib/offset'
 
 class EnigmaTest < Minitest::Test
 
@@ -86,7 +87,7 @@ class EnigmaTest < Minitest::Test
       key: key,
       date: "080320"
     }
-    assert_equal encryption, enigma.decrypt("lib^s mcvpu", key)#lib s mcvpu
+    assert_equal encryption, enigma.decrypt("lib^s mcvpu", key)
   end
 end
 #

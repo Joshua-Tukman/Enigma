@@ -3,11 +3,11 @@ require 'date'
 
 class Enigma
   def encrypt(str, key, date = Date.today.strftime('%d%m%y'))
-
     alphabet = ("a".."z").to_a << " "
 
     square = date.to_i ** 2
     last_four = square.to_s[-4..-1]
+    require "pry"; binding.pry
 
     a_offset = last_four[0].to_i
     b_offset = last_four[1].to_i
@@ -44,7 +44,7 @@ class Enigma
   def decrypt(str, key, date = Date.today.strftime('%d%m%y'))
 
     alphabet = ("a".."z").to_a << " "
-    
+
     square = date.to_i ** 2
     last_four = square.to_s[-4..-1]
 
