@@ -66,29 +66,29 @@ class EnigmaTest < Minitest::Test
     }
     assert_equal expected, enigma.decrypt("keder ohulw!", key, "040895")
   end
-end 
-#   def test_it_can_encrypt_a_message_with_todays_date
-#     key = Key.new("02715")
-#     enigma = Enigma.new
-#     expected = {
-#       encryption: "lib^s mcvpu" ,
-#       key: "02715",
-#       date: "070320"
-#     }
-#     assert_equal expected, enigma.encrypt("hello world", "02715")
-#   end
-#
-#   def test_it_can_decrypt_message_with_todays_date
-#     key = Key.new("02715")
-#     enigma = Enigma.new
-#     encryption = {
-#       decryption: "hello world",
-#       key: "02715",
-#       date: "070320"
-#     }
-#     assert_equal encryption, enigma.decrypt("lib^s mcvpu", "02715")#lib s mcvpu
-#   end
-# end
+
+  def test_it_can_encrypt_a_message_with_todays_date
+    key = Key.new("02715")
+    enigma = Enigma.new
+    expected = {
+      encryption: "lib^s mcvpu" ,
+      key: key,
+      date: "080320"
+    }
+    assert_equal expected, enigma.encrypt("hello world", key)
+  end
+
+  def test_it_can_decrypt_message_with_todays_date
+    key = Key.new("02715")
+    enigma = Enigma.new
+    encryption = {
+      decryption: "hello world",
+      key: key,
+      date: "080320"
+    }
+    assert_equal encryption, enigma.decrypt("lib^s mcvpu", key)#lib s mcvpu
+  end
+end
 #
 # # # encrypt a message with a key (uses today's date)
 # # pry(main)> encrypted = enigma.encrypt("hello world", "02715")
