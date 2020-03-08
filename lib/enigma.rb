@@ -2,7 +2,7 @@
 require 'date'
 
 class Enigma
-  def encrypt(str, key, date = Date.today.strftime('%d%m%y'))
+  def encrypt(str, key, date)
     alphabet = ("a".."z").to_a << " "
 
     # square = date.to_i ** 2
@@ -14,10 +14,10 @@ class Enigma
     # c_offset = last_four[2].to_i
     # d_offset = last_four[3].to_i
 
-    a_shift = key.a_key + a_offset
-    b_shift = key.b_key + b_offset
-    c_shift = key.c_key + c_offset
-    d_shift = key.d_key + d_offset
+    a_shift = key.a_key + date.a_offset
+    b_shift = key.b_key + date.b_offset
+    c_shift = key.c_key + date.c_offset
+    d_shift = key.d_key + date.d_offset
     shift_keys = [a_shift, b_shift, c_shift, d_shift]
 
     message = []
