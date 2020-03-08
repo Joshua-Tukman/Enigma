@@ -37,28 +37,30 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, enigma.encrypt("$hello wo&rld", key, date)
   end
 
-  # def test_it_can_encrypt_with_non_alphabet_characters_in_middle
-  #   key = Key.new("02715")
-  #   enigma = Enigma.new
-  #   expected = {
-  #     encryption: "keder, ohulw",
-  #     key: key,
-  #     date: "040895"
-  #   }
-  #   assert_equal expected, enigma.encrypt("hello, world", key, "040895")
-  # end
-  #
-  # def test_it_can_encrypt_with_non_alphabet_characters_at_end
-  #   key = Key.new("02715")
-  #   enigma = Enigma.new
-  #   expected = {
-  #     encryption: "keder ohulw!",
-  #     key: key,
-  #     date: "040895"
-  #   }
-  #   assert_equal expected, enigma.encrypt("hello world!", key, "040895")
-  # end
-  #
+  def test_it_can_encrypt_with_non_alphabet_characters_in_middle
+    date = Date.new("040895")
+    key = Key.new("02715")
+    enigma = Enigma.new
+    expected = {
+      encryption: "keder, ohulw",
+      key: key,
+      date: date
+    }
+    assert_equal expected, enigma.encrypt("hello, world", key, date)
+  end
+
+  def test_it_can_encrypt_with_non_alphabet_characters_at_end
+    date = Date.new("040895")
+    key = Key.new("02715")
+    enigma = Enigma.new
+    expected = {
+      encryption: "keder ohulw!",
+      key: key,
+      date: date
+    }
+    assert_equal expected, enigma.encrypt("hello world!", key, date)
+  end
+
   # def test_it_can_decrypt_message_with_a_key_and_date
   #   key = Key.new("02715")
   #   enigma = Enigma.new
