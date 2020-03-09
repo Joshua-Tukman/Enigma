@@ -10,6 +10,12 @@ class KeyTest < Minitest::Test
     assert_instance_of Key, key
   end
 
+  def test_it_can_generate_a_random_key
+    key = Key.new
+    assert_equal 5, key.key.length
+    assert (10000..100000).include?(key.key.to_i)
+  end
+
   def test_it_has_a_key
     key = Key.new("12345")
     assert_equal "12345", key.key

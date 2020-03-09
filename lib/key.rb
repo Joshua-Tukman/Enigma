@@ -1,8 +1,8 @@
 class Key
   attr_reader :key
 
-  def initialize(five_digits)
-    @key = five_digits
+  def initialize(key = rand.to_s[2..6])
+    @key = key
   end
 
   def a_key
