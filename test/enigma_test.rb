@@ -17,13 +17,13 @@ class EnigmaTest < Minitest::Test
     date = Date.new("040895")
     enigma = Enigma.new
     key = Key.new("02715")
-    shift = Shift.new(key, date)
 
     expected = {
       encryption: "keder ohulw",
       key: key,
       date: date
     }
+
     assert_equal expected, enigma.encrypt("hello world", key, date)
   end
 
@@ -31,12 +31,13 @@ class EnigmaTest < Minitest::Test
     date = Date.new("040895")
     key = Key.new("02715")
     enigma = Enigma.new
-    shift = Shift.new(key, date)
+
     expected = {
       encryption: "$keder oh&ulw",
       key: key,
       date: date
     }
+
     assert_equal expected, enigma.encrypt("$hello wo&rld", key, date)
   end
 
@@ -44,51 +45,55 @@ class EnigmaTest < Minitest::Test
     date = Date.new("040895")
     key = Key.new("02715")
     enigma = Enigma.new
-    shift = Shift.new(key, date)
+
     expected = {
       encryption: "keder, ohulw",
       key: key,
       date: date
     }
+
     assert_equal expected, enigma.encrypt("hello, world", key, date)
   end
 
   def test_it_can_encrypt_with_non_alphabet_characters_at_end
     date = Date.new("040895")
     key = Key.new("02715")
-    shift = Shift.new(key, date)
     enigma = Enigma.new
+
     expected = {
       encryption: "keder ohulw!",
       key: key,
       date: date
     }
+
     assert_equal expected, enigma.encrypt("hello world!", key, date)
   end
 
   def test_it_can_decrypt_message_with_a_key_and_date
     date = Date.new("040895")
     key = Key.new("02715")
-    shift = Shift.new(key, date)
     enigma = Enigma.new
+
     expected = {
       decryption: "hello world!",
       key: key,
       date: date
     }
+
     assert_equal expected, enigma.decrypt("keder ohulw!", key, date)
   end
 
   def test_it_can_encrypt_a_message_with_todays_date
     date = Date.new
     key = Key.new("02715")
-    shift = Shift.new(key, date)
     enigma = Enigma.new
+
     expected = {
       encryption: "lib^s mcvpu" ,
       key: key,
       date: date
     }
+
     assert_equal expected, enigma.encrypt("hello world", key)
   end
 
@@ -96,12 +101,13 @@ class EnigmaTest < Minitest::Test
     date = Date.new
     key = Key.new("02715")
     enigma = Enigma.new
-    shift = Shift.new(key, date)
+
     encryption = {
       decryption: "hello world",
       key: key,
       date: date
     }
+
     assert_equal encryption, enigma.decrypt("lib^s mcvpu", key)
   end
 end

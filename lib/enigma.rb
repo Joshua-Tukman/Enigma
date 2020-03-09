@@ -5,10 +5,6 @@ class Enigma
     shift = Shift.new(key, date)
     alphabet = ("a".."z").to_a << " "
 
-    # a_shift = key.a_key + date.a_offset
-    # b_shift = key.b_key + date.b_offset
-    # c_shift = key.c_key + date.c_offset
-    # d_shift = key.d_key + date.d_offset
     shift_keys = [shift.a_shift, shift.b_shift, shift.c_shift, shift.d_shift]
 
     message = []
@@ -35,10 +31,6 @@ class Enigma
     shift = Shift.new(key, date)
     alphabet = ("a".."z").to_a << " "
 
-    # a_shift = key.a_key + date.a_offset
-    # b_shift = key.b_key + date.b_offset
-    # c_shift = key.c_key + date.c_offset
-    # d_shift = key.d_key + date.d_offset
     shift_keys = [shift.a_shift, shift.b_shift, shift.c_shift, shift.d_shift]
 
     message = []
