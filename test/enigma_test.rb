@@ -27,6 +27,20 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, enigma.encrypt("hello world", key, date)
   end
 
+  def test_it_can_encrypt_a_message_with_uppercase_letters
+    date = Date.new("040895")
+    enigma = Enigma.new
+    key = Key.new("02715")
+
+    expected = {
+      encryption: "keder ohulw",
+      key: key,
+      date: date
+    }
+
+    assert_equal expected, enigma.encrypt("HELLO WORLD", key, date)
+  end
+
   def test_it_can_encrypt_with_non_alphabet_characters_at_beginning
     date = Date.new("040895")
     key = Key.new("02715")
@@ -83,7 +97,7 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, enigma.decrypt("keder ohulw!", key, date)
   end
 
-  def test_it_can_encrypt_a_message_with_todays_date
+  def test_it_can_encrypt_a_message_with_todays_date_and_key
     date = Date.new
     key = Key.new("02715")
     enigma = Enigma.new
@@ -110,6 +124,22 @@ class EnigmaTest < Minitest::Test
 
     assert_equal encryption, enigma.decrypt("lib^s mcvpu", key)
   end
+
+  def test_it_can_encrypt_with_random_key_and_todays_date
+    date = Date.new
+    key = Key.new
+    enigma = Enigma.new
+
+    expected = {
+    encryption: "xmqud axgti!",
+    key: "95863",
+    date: date
+    }
+    require "pry"; binding.pry
+  key.stubs(:key).returns("95863")
+  assert_equal expected, enigma.encrypt("hello world!")
+  end
+
 end
 #
 # # # encrypt a message with a key (uses today's date)

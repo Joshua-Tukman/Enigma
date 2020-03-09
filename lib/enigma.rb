@@ -1,14 +1,15 @@
 require 'date'
 
 class Enigma
-  def encrypt(str, key, date = Date.new)
+  def encrypt(str, key = Key.new(rand.to_s(2..6)), date = Date.new)
     shift = Shift.new(key, date)
+
     alphabet = ("a".."z").to_a << " "
 
     shift_keys = [shift.a_shift, shift.b_shift, shift.c_shift, shift.d_shift]
 
     message = []
-    str.split("").each do |letter|
+    str.downcase.split("").each do |letter|
       if letter == " "
         message << " "
         shift_keys = shift_keys.rotate(1)
@@ -29,6 +30,7 @@ class Enigma
 
   def decrypt(str, key, date = Date.new)
     shift = Shift.new(key, date)
+
     alphabet = ("a".."z").to_a << " "
 
     shift_keys = [shift.a_shift, shift.b_shift, shift.c_shift, shift.d_shift]
@@ -36,18 +38,23 @@ class Enigma
     message = []
 
     str.split("").each do |letter|
+
       if letter == " "
         message << " "
         shift_keys = shift_keys.rotate(1)
+
       elsif letter == "^"
         letter = " "
+
         old_index = alphabet.find_index(letter)
         new_letter = alphabet.rotate(old_index - shift_keys[0])[0]
         message << new_letter
         shift_keys = shift_keys.rotate(1)
       elsif !alphabet.include?(letter)
+
         message << letter
       else
+
         old_index = alphabet.find_index(letter)
         new_letter = alphabet.rotate(old_index - shift_keys[0])[0]
           message << new_letter
