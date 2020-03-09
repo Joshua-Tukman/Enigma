@@ -4,6 +4,7 @@ require 'minitest/pride'
 require './lib/enigma'
 require './lib/key'
 require './lib/date'
+require './lib/shift'
 
 class EnigmaTest < Minitest::Test
 
@@ -16,6 +17,7 @@ class EnigmaTest < Minitest::Test
     date = Date.new("040895")
     enigma = Enigma.new
     key = Key.new("02715")
+    shift = Shift.new(key, date)
 
     expected = {
       encryption: "keder ohulw",
@@ -29,6 +31,7 @@ class EnigmaTest < Minitest::Test
     date = Date.new("040895")
     key = Key.new("02715")
     enigma = Enigma.new
+    shift = Shift.new(key, date)
     expected = {
       encryption: "$keder oh&ulw",
       key: key,
@@ -41,6 +44,7 @@ class EnigmaTest < Minitest::Test
     date = Date.new("040895")
     key = Key.new("02715")
     enigma = Enigma.new
+    shift = Shift.new(key, date)
     expected = {
       encryption: "keder, ohulw",
       key: key,
@@ -52,6 +56,7 @@ class EnigmaTest < Minitest::Test
   def test_it_can_encrypt_with_non_alphabet_characters_at_end
     date = Date.new("040895")
     key = Key.new("02715")
+    shift = Shift.new(key, date)
     enigma = Enigma.new
     expected = {
       encryption: "keder ohulw!",
@@ -64,6 +69,7 @@ class EnigmaTest < Minitest::Test
   def test_it_can_decrypt_message_with_a_key_and_date
     date = Date.new("040895")
     key = Key.new("02715")
+    shift = Shift.new(key, date)
     enigma = Enigma.new
     expected = {
       decryption: "hello world!",
@@ -76,6 +82,7 @@ class EnigmaTest < Minitest::Test
   def test_it_can_encrypt_a_message_with_todays_date
     date = Date.new
     key = Key.new("02715")
+    shift = Shift.new(key, date)
     enigma = Enigma.new
     expected = {
       encryption: "lib^s mcvpu" ,
@@ -89,6 +96,7 @@ class EnigmaTest < Minitest::Test
     date = Date.new
     key = Key.new("02715")
     enigma = Enigma.new
+    shift = Shift.new(key, date)
     encryption = {
       decryption: "hello world",
       key: key,

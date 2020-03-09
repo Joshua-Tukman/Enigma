@@ -1,15 +1,15 @@
-
 require 'date'
 
 class Enigma
   def encrypt(str, key, date = Date.new)
+    shift = Shift.new(key, date)
     alphabet = ("a".."z").to_a << " "
 
-    a_shift = key.a_key + date.a_offset
-    b_shift = key.b_key + date.b_offset
-    c_shift = key.c_key + date.c_offset
-    d_shift = key.d_key + date.d_offset
-    shift_keys = [a_shift, b_shift, c_shift, d_shift]
+    # a_shift = key.a_key + date.a_offset
+    # b_shift = key.b_key + date.b_offset
+    # c_shift = key.c_key + date.c_offset
+    # d_shift = key.d_key + date.d_offset
+    shift_keys = [shift.a_shift, shift.b_shift, shift.c_shift, shift.d_shift]
 
     message = []
     str.split("").each do |letter|
@@ -32,14 +32,14 @@ class Enigma
   end
 
   def decrypt(str, key, date = Date.new)
-
+    shift = Shift.new(key, date)
     alphabet = ("a".."z").to_a << " "
 
-    a_shift = key.a_key + date.a_offset
-    b_shift = key.b_key + date.b_offset
-    c_shift = key.c_key + date.c_offset
-    d_shift = key.d_key + date.d_offset
-    shift_keys = [a_shift, b_shift, c_shift, d_shift]
+    # a_shift = key.a_key + date.a_offset
+    # b_shift = key.b_key + date.b_offset
+    # c_shift = key.c_key + date.c_offset
+    # d_shift = key.d_key + date.d_offset
+    shift_keys = [shift.a_shift, shift.b_shift, shift.c_shift, shift.d_shift]
 
     message = []
 
