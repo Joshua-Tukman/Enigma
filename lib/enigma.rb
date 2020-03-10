@@ -3,11 +3,9 @@ require 'date'
 class Enigma
   def encrypt(str, key = Key.new(rand.to_s(2..6)), date = Date.new)
     shift = Shift.new(key, date)
-
     alphabet = ("a".."z").to_a << " "
 
     shift_keys = [shift.a_shift, shift.b_shift, shift.c_shift, shift.d_shift]
-
     message = []
     str.downcase.split("").each do |letter|
       if letter == " "

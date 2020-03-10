@@ -3,7 +3,7 @@ require_relative 'key'
 require_relative 'date'
 require_relative 'shift'
 
-ARGV == ["encrypted.txt", "decrypted.txt", "key", "date"]
+#ARGV == ["encrypted.txt", "decrypted.txt", "key", "date"]
 
 
 file = File.open(ARGV[0], "r")

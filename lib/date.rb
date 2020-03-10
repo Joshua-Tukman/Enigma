@@ -1,3 +1,5 @@
+require 'date'
+
 class Date
   attr_reader :date, :squared
 

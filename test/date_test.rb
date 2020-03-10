@@ -1,3 +1,4 @@
+require 'date'
 require_relative "../test/test_helper"
 require 'minitest/autorun'
 require 'minitest/pride'
@@ -17,7 +18,7 @@ class DateTest < Minitest::Test
 
   def test_it_has_default_of_todays_date
     date = Date.new
-    assert_equal "080320", date.date
+    assert_equal "100320", date.date
   end
 
   def test_it_can_square_given_date
@@ -27,7 +28,7 @@ class DateTest < Minitest::Test
 
   def test_it_can_square_todays_date
     date = Date.new
-    assert_equal 6451302400, date.squared
+    assert_equal 10064102400, date.squared
   end
 
   def test_it_can_return_last_four_of_date_squared

@@ -19,12 +19,13 @@ class ShiftTest < Minitest::Test
     key = Key.new("02715")
     shift = Shift.new(key, date)
     assert_equal "02715", shift.key.key
-    assert_equal "080320", shift.date.date
+    assert_equal "100320", shift.date.date
   end
 
   def test_it_can_generate_A_shift
     date = Date.new
     key = Key.new("02715")
+
     shift = Shift.new(key, date)
     assert_equal 4, shift.a_shift
   end
