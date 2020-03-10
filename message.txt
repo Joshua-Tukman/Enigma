@@ -1,6 +1,9 @@
 I had a lot of fun with this project. Thank you
 Aurora, Megan and Tim for giving me the opportunity to
 push on to MOD2! Just this morning I figured out how to use
-Stubs in my program. I'm very happy how many things have
+Stubs in my program with the key value. Unfortunately, I wasn't
+able to figure out how to use it with the date value. For some reason
+it would revert back to today's date.
+Overall, I'm very happy with how many things have
 become less confusing in the past couple weeks. I hope you all are
-enjoying the week off.  
+enjoying the week off.

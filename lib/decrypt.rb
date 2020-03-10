@@ -19,5 +19,3 @@ new_file.write(decrypted_message[:decryption])
 new_file.close
 
 puts "Created 'decrypted.txt' with the key #{key.key} and date #{date.date}"
-#key = Key.new(ARGV[2])
-#date = Date.new(ARGV[3]
